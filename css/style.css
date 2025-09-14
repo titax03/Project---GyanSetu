@@ -1,0 +1,578 @@
+/* =========================
+   RESET
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/* =========================
+   THEME VARIABLES
+   - :root  = LIGHT MODE (default)
+   - .dark  = DARK MODE (your original variable set)
+   ========================= */
+
+:root {
+  /* Primary / action (light-mode, video-like) */
+  --color-primary: #4f46e5; /* indigo-ish primary for light mode */
+  --color-success: #16a34a;
+  --color-warning: #fac575;
+  --color-danger: #dc2626;
+  --color-danger-variant: rgba(220, 38, 38, 0.8);
+
+  /* Text & muted */
+  --color-white: #0a0a0a; /* main text color for light mode (dark text) */
+  --color-light: rgba(10, 10, 10, 0.6); /* muted text in light mode */
+  --color-black: #ffffff;
+  --color-shadow: 0 0 20px rgba(255, 255, 255, 0),
+    0 0 40px rgba(77, 166, 255, 0), 0 0 60px rgba(107, 70, 193, 0.6);
+  /* background (light mode uses white) */
+
+  /* Backgrounds / surfaces */
+  --color-bg: #fbfbfb; /* page background (light mode) */
+  --color-bg1: #f3f4f6; /* panels / subtle surfaces */
+  --color-bg2: #e5e7eb;
+  --color-bg3: linear-gradient(90deg, #030303, rgb(71, 63, 224));
+  --color-bg4: rgba(71, 63, 224, 0.6); /* cards / secondary surfaces */
+
+  /* Layout */
+  --container-width-lg: 85%;
+  --container-width-md: 90%;
+  --container-width-sm: 94%;
+
+  --transition: all 400ms ease;
+}
+
+/* === YOUR ORIGINAL VARIABLES (used as DARK THEME) ===
+   I placed your provided variable set here so toggling `.dark` will
+   reproduce your project's current variable names/values (no code changes needed).
+*/
+.dark {
+  /* palette */
+  --color-primary: #473fe0; /* Neon blue (button, accents) */
+  --color-success: #00c896;
+  --color-warning: #fac575eb;
+  --color-danger: #ff4d4d;
+  --color-danger-variant: rgba(255, 77, 77, 0.8);
+
+  --color-white: #f0f4ff; /* text */
+  --color-light: rgba(255, 255, 255, 0.7); /* muted */
+  --color-black: #0a0d12;
+  --color-shadow: 0 0 20px rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(69, 93, 117, 0), 0 0 60px rgba(84, 25, 222, 0);
+
+  /* Make the variable itself a gradient — this is the important part */
+  --color-bg: #0d1a26;
+  --color-bg1: #142233;
+  --color-bg2: #9b30ff;
+  --color-bg3: linear-gradient(90deg, #d2cbfb, #473fe0);
+  --color-bg4: rgba(71, 63, 224, 0.9);
+
+  --container-width-lg: 85%;
+  --container-width-md: 90%;
+  --container-width-sm: 94%;
+
+  --transition: all 400ms ease;
+}
+
+/* =========================
+   BASE / LAYOUT (kept your original rules)
+   ========================= */
+
+body {
+  font-family: "Montserrat", "DM Sans", sans-serif;
+  line-height: 1.7;
+  color: var(--color-white);
+  background: var(--color-bg);
+  overflow-y: scroll; /* keeps scroll functionality */
+  scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+  width: 0px; /* Chrome, Safari, Edge */
+  background: transparent;
+}
+
+.container {
+  width: var(--container-width-lg);
+  margin: 0 auto;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+a {
+  color: var(--color-white);
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+/* Base Button */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: rgba(168, 139, 234, 0.19);
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Hover: Transparent background + white border */
+.btn:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: var(--color-white);
+  color: var(--color-white);
+  cursor: pointer;
+  font-weight: 450;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: var(--color-bg4);
+  color: var(--color-white);
+  border: 1px solid transparent;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.5s ease;
+}
+
+/* Primary Hover */
+.btn-primary:hover {
+  background: rgba(71, 63, 224, 0.25);
+  border-color: var(--color-white);
+  color: var(--color-white);
+  cursor: pointer;
+  font-weight: 650;
+}
+.btnl {
+  padding: 0.4rem 0.9rem;
+}
+
+#theme-toggle {
+  display: inline-flex; /* make it visible */
+  align-items: center;
+  padding-right: 1rem;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem; /* size of the moon/sun icon */
+  color: var(--color-white); /* matches text color */
+  cursor: pointer;
+  transition: var(--transition);
+  margin-left: 1rem; /* spacing */
+}
+#theme-toggle:hover {
+  font-weight: 800;
+}
+
+/* 888888888888888 Navbar 888888888888888888   */
+
+/* Light Theme (default) */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 4rem;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease;
+  z-index: 1000;
+}
+
+/* When scrolled */
+nav.scrolled {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(230, 230, 255, 0.6),
+    rgba(220, 240, 255, 0.6)
+  );
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Theme */
+body.dark nav.scrolled {
+  background: linear-gradient(
+    90deg,
+    rgba(42, 15, 78, 0.6),
+    rgba(28, 27, 90, 0.6),
+    rgba(13, 26, 38, 0.6)
+  );
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav_container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav_menu {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.nav_menu a {
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.nav_menu a:hover {
+  font-weight: 700;
+  /* color: #716afd; */
+}
+
+.nav_logo h4 {
+  font-size: 1.9rem;
+  padding-left: 1rem;
+  -webkit-text-stroke: 0.2px var(--color-black); /* white outline around text */
+  text-shadow: 0.2px var(--color-black);
+  font-weight: 900;
+  background: var(--color-bg3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: var(--color-shadow);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: var(--transition);
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.nav_logo h4:hover {
+  text-shadow: 0 0 15px rgba(77, 166, 255, 0.371);
+}
+/* 888888888888888888888888888 Header 8888888888888888888888888888888888888 */
+.theme-image {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+body:not(.dark) .theme-image.light {
+  display: block;
+}
+
+body.dark .theme-image.dark {
+  display: block;
+}
+
+header {
+  position: relative;
+  top: 5rem;
+  overflow: hidden;
+  margin-bottom: 5rem;
+}
+
+.header_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 5rem;
+  height: 100%;
+}
+.header_left p {
+  margin: 1rem 0 2.4rem;
+}
+/* 888888888888888888 CATERORIES 888888888888888888 */
+
+.categories {
+  background: var(--color-bg1);
+  height: 30rem;
+}
+.categories h1 {
+  line-height: 5rem;
+  margin-bottom: 1rem;
+}
+.categories_container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 4rem;
+}
+.categories_left {
+  margin-right: 1rem;
+}
+
+.categories_left p {
+  margin: 2rem 0 2rem;
+}
+.categories_right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-left: 1rem;
+}
+.category {
+  background: rgba(71, 63, 224, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 2rem;
+  border-radius: 2rem;
+  transition: var(--transition);
+}
+/* BOX SHADOW EFFECT */
+.category:hover {
+  box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.category:nth-child(2) .category_icon {
+  background: #d9809e;
+}
+.category:nth-child(3) .category_icon {
+  background: #61c7b1;
+}
+.category:nth-child(4) .category_icon {
+  background: #86a3c1;
+}
+.category:nth-child(5) .category_icon {
+  background: var(--color-warning);
+}
+.category_icon {
+  background: var(--color-bg4);
+  padding: 0.8rem;
+  border-radius: 0.9rem;
+}
+.dark .category_icon {
+  background: var(--color-primary);
+}
+.category h5 {
+  margin: 1.5rem 0 0.6rem;
+}
+.category p {
+  font-size: 0.85rem;
+}
+
+/* 8888888888888888888 Lorem Courses 888888888888888888 */
+.courses {
+  margin-top: 10rem;
+}
+.courses_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.course {
+  background: var(--color-bg1);
+  text-align: center;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+.course:hover {
+  background: transparent;
+  border-color: var(--color-primary);
+}
+.course_info {
+  padding: 2rem;
+}
+.course_info p {
+  margin: 1.2rem 0 2rem;
+  font-size: 0.9rem;
+}
+
+/* ***********************FAQ ***********************/
+.faqs {
+  background: var(--color-bg1); /* Light background */
+  box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.06);
+}
+.dark .faqs {
+  box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.5);
+}
+.faqs_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.faq {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  height: fit-content;
+  cursor: pointer;
+  background: rgba(71, 63, 224, 0.25);
+  border-radius: 0.3rem;
+}
+.faq h4 {
+  font-size: 1rem;
+  line-height: 2.2;
+}
+.faq_icon {
+  align-self: flex-start;
+  font-size: 1.3rem;
+}
+.faq p {
+  margin-top: 0.8rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.faq.open p {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* **************************  FAQ END ********************************* */
+
+.testimonials_container {
+  overflow-x: hidden;
+  position: relative;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+}
+.testimonial {
+  padding-top: 2rem;
+}
+.testimonial_info {
+  text-align: center;
+}
+.avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  border: 0.8rem solid var(--color-bg1);
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.testimonial_body {
+  background: #473fe040;
+  padding: 2rem;
+  margin-top: 3rem;
+  position: relative;
+  text-align: center;
+  z-index: 11;
+}
+.testimonial_body::before {
+  content: "";
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 1.5rem solid transparent;
+  border-right: 1.5rem solid transparent;
+  border-bottom: 1.5rem solid #473fe040;
+}
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 3rem;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+/* ******************* FOOTER ***************** */
+footer {
+  background: var(--color-bg1);
+  padding: 5rem;
+  font-size: 0.9rem;
+}
+.footer_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5rem;
+}
+.footer_container a:hover {
+  text-decoration: underline;
+}
+.footer_container > div h4 {
+  margin-bottom: 1.2rem;
+}
+.footer_1 p {
+  margin: 0 0 2rem;
+}
+.footer_copyright {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-bg2);
+  font-size: 1.1rem;
+}
+
+/* =========================
+   MEDIA QUERIES
+   ========================= */
+   @media screen and (max-width: 1024px) {
+    .container {
+      width: var(--container-width-md);
+    }
+    h1 {
+      font-size: 2.2rem;
+    }
+    h2 {
+      font-size: 1.7rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    h4 {
+      font-size: 1.2rem;
+    }
+
+   nav button {
+    display: inline-block;
+    background: transparent;
+    font-size: 1.8rem;
+    color: var(--color-white);
+    cursor: pointer;
+   }
+  
+}
+
