@@ -46,19 +46,9 @@ Backend (Future Scope): Node.js / Django for teacher dashboards and student data
 
 📦 Installation
 
-Clone the repo:
-
-git clone https://github.com/your-username/gyansetu.git
-
-
-Open the folder:
-
-cd gyansetu
-
-
 Run in browser:
 
-Open index.html in your browser.
+Open main_index.html in your browser.
 
 (Future scope: npm scripts / backend setup)
 
@@ -72,11 +62,6 @@ Open index.html in your browser.
 
 ✅ Content collaboration with Punjab Education Department.
 
-👨‍🏫 Contributors
-
-Your Name – Developer & UI Designer
-
-(Add teammates if working in a group)
 
 📜 License
 
