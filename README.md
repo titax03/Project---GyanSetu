@@ -1,6 +1,6 @@
 <h1>GyanSetu – Bridging the Digital Divide in Rural Education</h1>
 
-<h5>GyanSetu is a digital learning platform designed to empower rural students by providing offline-first access to quality educational content. With interactive quizzes, local language support, and progress tracking, the platform bridges the gap between rural and urban education.</h5>
+<h5>GyanSetu is a digital learning platform designed to empower rural students by providing offline-first access to quality educational content, the platform bridges the gap between rural and urban education.</h5>
 
 🚀 Features
 
