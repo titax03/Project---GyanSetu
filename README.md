@@ -1,4 +1,4 @@
-GyanSetu – Bridging the Digital Divide in Rural Education
+<h1>GyanSetu – Bridging the Digital Divide in Rural Education</h1>
 
 “Our project is installable like an app and works offline in rural areas.”
 
