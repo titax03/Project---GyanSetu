@@ -6,14 +6,6 @@
 
 📚 Future-Ready Courses – Engaging lessons in core subjects and digital skills.
 
-📝 Interactive Quizzes – Fun, colorful quizzes with instant feedback.
-
-🌐 Offline Access – Works without internet once lessons are downloaded.
-
-🗣️ Local Language Support – Available in Punjabi, Hindi, and English.
-
-📊 Progress Tracking – Smart dashboards for teachers and students.
-
 🤝 Doubt Support – Students can submit doubts, and teachers receive them via email.
 
 ⚡ Optimized for Low-End Devices – Smooth performance even with poor connectivity.
@@ -53,6 +45,13 @@ Open main_index.html in your browser.
 (Future scope: npm scripts / backend setup)
 
 🔮 Future Scope
+📝 Interactive Quizzes – Fun, colorful quizzes with instant feedback.
+
+🌐 Offline Access – Works without internet once lessons are downloaded.
+
+🗣️ Local Language Support – Available in Punjabi, Hindi, and English.
+
+📊 Progress Tracking – Smart dashboards for teachers and students.
 
 ✅ AI-powered personalized learning paths.
 
